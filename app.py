@@ -23,6 +23,13 @@ def predict():
     print("pred value",pred_val[0])
     return jsonify(pred_val[0])
 
+@app.route('/UserPredict',methods=['POST'])
+def UserPredict():
+    data = [float(x) for x in request.form.values()]
+    new_entry = scaled_data.transform(np.array(data).reshape(1,-1))
+    pred_val =model_load.predict(new_entry)[0]
+    return render_template("home.html",prediction_val = "The prediction value is {}".format(pred_val))
+
 if __name__=="__main__":
     app.run(debug=True)
 

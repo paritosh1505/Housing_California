@@ -19,5 +19,5 @@ conda activate venv/
 3. Install the dependecies for requirements.txt
 
 ```
-
+pip install -r requirements.txt
 ```
